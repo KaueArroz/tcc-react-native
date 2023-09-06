@@ -1,12 +1,34 @@
-import { StatusBar } from 'expo-status-bar';
-import { View, Text, TouchableOpacity, StyleSheet, Image, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, Image, ScrollView } from 'react-native';
+
+import { 
+  useFonts,
+  Montserrat_400Regular,
+  Montserrat_700Bold
+} from '@expo-google-fonts/montserrat';
+
+import AppLoading from 'expo-app-loading';
+
+import { Ionicons } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
+
+import styles from './Style';
 
 export default function App() {
+
+  const [ fontsLoaded ] = useFonts({
+    Montserrat_400Regular,
+    Montserrat_700Bold
+  })
+
+  if(!fontsLoaded){
+    <AppLoading/>
+  }
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
       {/* Logo */}
       <Image
-        source={require('./assets/LogoTccPng.png')}
+        source={require('./src/assets/LogoTccPng.png')}
         style={styles.logo}
       />
       {/* Menu */}
@@ -30,7 +52,7 @@ export default function App() {
 
       {/* Imagem principal */}
       <Image
-        source={require('./assets/Roupas.png')}
+        source={require('./src/assets/Roupas.png')}
         style={styles.imgPrincipal}
       />
 
@@ -48,11 +70,12 @@ export default function App() {
       {/* Cards */}
 
       <View style={styles.card}>
-
-        <Image
-          source={require('./assets/selfie.jpg')}
-          style={styles.cardImage}
-        />
+        <TouchableOpacity>
+          <Image
+            source={require('./src/assets/selfie.jpg')}
+            style={styles.cardImage}
+          />
+        </TouchableOpacity>
         <View style={styles.cardContent}>
           <Text style={styles.cardTitle}>roupa</Text>
           <Text style={styles.cardDescription}>Descrição da roupa e cores</Text>
@@ -60,10 +83,12 @@ export default function App() {
       </View>
 
       <View style={styles.card}>
-        <Image
-          source={require('./assets/selfie.jpg')}
-          style={styles.cardImage}
-        />
+      <TouchableOpacity>
+          <Image
+            source={require('./src/assets/selfie.jpg')}
+            style={styles.cardImage}
+          />
+        </TouchableOpacity>
         <View style={styles.cardContent}>
           <Text style={styles.cardTitle}>roupa</Text>
           <Text style={styles.cardDescription}>Descrição da roupa e cores</Text>
@@ -71,10 +96,12 @@ export default function App() {
       </View>
 
       <View style={styles.card}>
-        <Image
-          source={require('./assets/selfie.jpg')}
-          style={styles.cardImage}
-        />
+      <TouchableOpacity>
+          <Image
+            source={require('./src/assets/selfie.jpg')}
+            style={styles.cardImage}
+          />
+        </TouchableOpacity>
         <View style={styles.cardContent}>
           <Text style={styles.cardTitle}>roupa</Text>
           <Text style={styles.cardDescription}>Descrição da roupa e cores</Text>
@@ -82,10 +109,12 @@ export default function App() {
       </View>
 
       <View style={styles.card}>
-        <Image
-          source={require('./assets/selfie.jpg')}
-          style={styles.cardImage}
-        />
+      <TouchableOpacity>
+          <Image
+            source={require('./src/assets/selfie.jpg')}
+            style={styles.cardImage}
+          />
+        </TouchableOpacity>
         <View style={styles.cardContent}>
           <Text style={styles.cardTitle}>roupa</Text>
           <Text style={styles.cardDescription}>Descrição da roupa e cores</Text>
@@ -100,122 +129,77 @@ export default function App() {
       <Text style={styles.titulo}>Feedbacks</Text>
 
       <Image
-        source={require('./assets/feedback.jpg')}
+        source={require('./src/assets/feedback.jpg')}
         style={styles.cardImageFeed}
       />
 
       <Image
-        source={require('./assets/feedback.jpg')}
+        source={require('./src/assets/feedback.jpg')}
         style={styles.cardImageFeed}
       />
 
       <Image
-        source={require('./assets/feedback.jpg')}
+        source={require('./src/assets/feedback.jpg')}
         style={styles.cardImageFeed}
       />
 
+      <View style={styles.footerContainer}>
+
+        <View style={styles.footerSection}>
+          <Text style={styles.titleFooter}>Formas de pagamento</Text>
+          <View>
+            <Ionicons name="card" style={styles.icon}>
+              <Text style={styles.textFooter}>Cartão</Text>
+            </Ionicons>
+            
+            <Ionicons name="phone-portrait-outline" style={styles.icon}>
+              <Text style={styles.textFooter}>PIX</Text>
+            </Ionicons>
+
+            <FontAwesome5 name="money-bill" style={styles.icon}>
+              <Text style={styles.textFooter}>Dinheiro</Text>
+            </FontAwesome5>
+          </View>
+        </View>
+
+        <View style={styles.footerSection}>
+          <Text style={styles.titleFooter}>Formas de envio</Text>
+          <View>
+            <FontAwesome5 name="box" style={styles.icon}>
+              <Text style={styles.textFooter}>Correios</Text>
+            </FontAwesome5>
+
+            <FontAwesome5 name="shipping-fast" style={styles.icon}>
+              <Text style={styles.textFooter}>Entrega Expressa</Text>
+            </FontAwesome5> 
+
+            <Ionicons name="ios-home-sharp" style={styles.icon}>
+              <Text style={styles.textFooter}>Entregas Físicas</Text>
+            </Ionicons>
+          </View>
+        </View>
+
+        <View style={styles.footerSection}>
+          <Text style={styles.titleFooter}>Contato</Text>
+          <View>
+            <FontAwesome5 name="phone-alt" style={styles.icon}>
+              <Text style={styles.textFooter}>4002-8922</Text>
+            </FontAwesome5>
+
+            <FontAwesome5 name="phone-alt" style={styles.icon}>
+              <Text style={styles.textFooter}>4002-8922</Text>
+            </FontAwesome5>
+
+            <FontAwesome5 name="envelope" style={styles.icon}>
+              <Text style={styles.textFooter}>foreich@suporte.com</Text>
+            </FontAwesome5>
+          </View>
+        </View>
+
+        <Text style={styles.copy}>&copy; Todos os direitos reservados | Feito com ❤️ por ForEich LTDA</Text>
+      </View>
 
     </ScrollView>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    paddingVertical: 10,
-    alignItems: 'center',
-  },
-  logo: {
-    width: 100,
-    height: 100,
-    resizeMode: 'contain',
-  },
-  menu: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    width: '100%',
-    marginTop: 10,
-    marginRight: 10,
-    backgroundColor: 'white',
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
-    paddingBottom: 20,
-  },
-  menuItem: {
-    flex: 1,
-    alignItems: 'center',
-  },
-  menuText: {
-    color: 'black',
-    textAlign: 'center',
-    fontSize: 14,
-  },
-
-  imgPrincipal: {
-    width: 360,
-    height: 195,
-    resizeMode: 'contain',
-  },
-
-  /* estilo da lista */
-
-  topicList: {
-    marginTop: 20,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  topicItem: {
-    fontSize: 16,
-    marginVertical: 10,
-    textAlign: 'center',
-    fontWeight: '600',
-  },
-
-  /* titulo */
-
-  titulo: {
-    fontSize: 26,
-    fontWeight: 'bold',
-    marginVertical: 30,
-  },
-
-  /* estilo card */
-  card: {
-    backgroundColor: '#f0f0f0',
-    borderRadius: 10,
-    margin: 10,
-    overflow: 'hidden',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
-  },
-  cardImage: {
-    width: 360,
-    height: 195,
-    resizeMode: 'cover',
-  },
-  cardContent: {
-    padding: 10,
-    backgroundColor: 'white',
-  },
-  cardTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 5,
-  },
-  cardDescription: {
-    fontSize: 14,
-  },
-
-  cardImageFeed: {
-    width: 360,
-    height: 495,
-    resizeMode: 'cover',
-
-    marginVertical: 20
-  }
-});
