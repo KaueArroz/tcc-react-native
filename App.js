@@ -8,10 +8,10 @@ import {
 
 import AppLoading from 'expo-app-loading';
 
-import { Ionicons } from '@expo/vector-icons';
-import { FontAwesome5 } from '@expo/vector-icons';
-
 import styles from './Style';
+import Footer from './src/components/footer/Footer';
+import Header from './src/components/header/Header';
+
 
 export default function App() {
 
@@ -26,43 +26,8 @@ export default function App() {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      {/* Logo */}
-      <Image
-        source={require('./src/assets/LogoTccPng.png')}
-        style={styles.logo}
-      />
-      {/* Menu */}
-      <View style={styles.menu}>
-        <TouchableOpacity style={styles.menuItem}>
-          <Text style={styles.menuText}>Início</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.menuItem}>
-          <Text style={styles.menuText}>Produtos</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.menuItem}>
-          <Text style={styles.menuText}>Como Comprar</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.menuItem}>
-          <Text style={styles.menuText}>Trocas e Devoluções</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.menuItem}>
-          <Text style={styles.menuText}>Perguntas Frequentes</Text>
-        </TouchableOpacity>
-      </View>
-
-      {/* Imagem principal */}
-      <Image
-        source={require('./src/assets/Roupas.png')}
-        style={styles.imgPrincipal}
-      />
-
-      {/* Lista */}
-      <View style={styles.topicList}>
-        <Text style={styles.topicItem}>Enviamos suas compras para todo o Brasil!</Text>
-        <Text style={styles.topicItem}>Pague com PIX, TED ou CARTÃO DE CRÉDITO</Text>
-        <Text style={styles.topicItem}>Compre com segurança. Seus dados sempre protegidos.</Text>
-      </View>
-
+      
+      <Header />
       {/* Titulo */}
 
       <Text style={styles.titulo}>Destaques</Text>
@@ -143,61 +108,7 @@ export default function App() {
         style={styles.cardImageFeed}
       />
 
-      <View style={styles.footerContainer}>
-
-        <View style={styles.footerSection}>
-          <Text style={styles.titleFooter}>Formas de pagamento</Text>
-          <View>
-            <Ionicons name="card" style={styles.icon}>
-              <Text style={styles.textFooter}>Cartão</Text>
-            </Ionicons>
-            
-            <Ionicons name="phone-portrait-outline" style={styles.icon}>
-              <Text style={styles.textFooter}>PIX</Text>
-            </Ionicons>
-
-            <FontAwesome5 name="money-bill" style={styles.icon}>
-              <Text style={styles.textFooter}>Dinheiro</Text>
-            </FontAwesome5>
-          </View>
-        </View>
-
-        <View style={styles.footerSection}>
-          <Text style={styles.titleFooter}>Formas de envio</Text>
-          <View>
-            <FontAwesome5 name="box" style={styles.icon}>
-              <Text style={styles.textFooter}>Correios</Text>
-            </FontAwesome5>
-
-            <FontAwesome5 name="shipping-fast" style={styles.icon}>
-              <Text style={styles.textFooter}>Entrega Expressa</Text>
-            </FontAwesome5> 
-
-            <Ionicons name="ios-home-sharp" style={styles.icon}>
-              <Text style={styles.textFooter}>Entregas Físicas</Text>
-            </Ionicons>
-          </View>
-        </View>
-
-        <View style={styles.footerSection}>
-          <Text style={styles.titleFooter}>Contato</Text>
-          <View>
-            <FontAwesome5 name="phone-alt" style={styles.icon}>
-              <Text style={styles.textFooter}>4002-8922</Text>
-            </FontAwesome5>
-
-            <FontAwesome5 name="phone-alt" style={styles.icon}>
-              <Text style={styles.textFooter}>4002-8922</Text>
-            </FontAwesome5>
-
-            <FontAwesome5 name="envelope" style={styles.icon}>
-              <Text style={styles.textFooter}>foreich@suporte.com</Text>
-            </FontAwesome5>
-          </View>
-        </View>
-
-        <Text style={styles.copy}>&copy; Todos os direitos reservados | Feito com ❤️ por ForEich LTDA</Text>
-      </View>
+      <Footer />
 
     </ScrollView>
   );

@@ -10,6 +10,7 @@ export default StyleSheet.create({
       width: 100,
       height: 100,
       resizeMode: 'contain',
+      margin: 'auto'
     },
     
     menu: {
@@ -17,7 +18,7 @@ export default StyleSheet.create({
       alignItems: 'center',
       width: '100%',
       marginTop: 10,
-      marginRight: 10,
+      paddingRight: 10,
       backgroundColor: 'white',
       borderBottomWidth: 1,
       borderBottomColor: '#ccc',
@@ -32,7 +33,7 @@ export default StyleSheet.create({
     menuText: {
       color: 'black',
       textAlign: 'center',
-      fontSize: 14,
+      fontSize: 12,
       fontFamily: 'Montserrat_400Regular',
     },
   
@@ -110,53 +111,7 @@ export default StyleSheet.create({
       width: 360,
       height: 495,
       resizeMode: 'cover',
-  
       marginVertical: 20
     },
 
-    /* Footer */
-
-    footerContainer: {
-      flex: 1,
-      alignItems: 'center',
-      borderTopWidth: 1,
-      borderTopColor: '#ccc',
-      marginTop: 10,
-      paddingTop: 20,
-      paddingHorizontal: 30
-    },
-
-    footerSection: {
-      marginTop: 10,
-      marginBottom: 30,
-    },
-
-    titleFooter: {
-      fontFamily: 'Montserrat_700Bold',
-      textAlign: 'center',
-      fontSize: 20,
-      fontWeight: 'bold',
-      marginBottom: 8
-    },
-
-    icon: {
-      fontSize: 20,
-      color: '#000',
-      textAlign: 'center',
-      paddingVertical: 8,
-    },
-    
-    textFooter: {
-      fontFamily: 'Montserrat_400Regular',
-      fontSize: 16,
-      textAlign: 'center',
-      paddingLeft: 5
-    },  
-
-    copy: {
-      fontFamily: 'Montserrat_400Regular',
-      fontSize: 16,
-      textAlign: "center",
-      marginBottom: 20
-    }
   });
